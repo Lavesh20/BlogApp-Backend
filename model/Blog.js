@@ -1,6 +1,6 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
-const Schema = new Schema();
+const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
     title:{

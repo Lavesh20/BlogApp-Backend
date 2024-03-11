@@ -1,6 +1,7 @@
 import  express  from "express";
 import mongoose from "mongoose";
 import router from "./routes/user-routes";
+import Blogrouter from "./routes/blog-routes";
 const app = express();
 
 app.use(express.json())
@@ -14,4 +15,5 @@ mongoose.connect("mongodb+srv://laveshvyas20:HYfPIVV7timUKqPN@cluster0.frfboac.m
 //     res.send("Hello world")
 // });
 
-app.use('/',router);
+app.use('/api',router);
+app.use('/api/blog',Blogrouter)

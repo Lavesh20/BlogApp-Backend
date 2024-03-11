@@ -12,9 +12,7 @@ const getAllUsers = async (req,res,next)=>{
             message:"No users found"
         })
     }
-    return res.status(200).json({
-        users
-    })
+    return res.status(200).json({users})
 }
 export default getAllUsers;
 
