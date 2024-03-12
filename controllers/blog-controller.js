@@ -38,8 +38,8 @@ export const updateBlog = async(req,res,next)=>{
     try{
      blog = await Blog.findByIdAndUpdate(blogId,{
               title,
-              description},
-              )} catch(err){
+              description}
+            )} catch(err){
         return console.log(err)
     }
     if(!blog){
@@ -48,4 +48,20 @@ export const updateBlog = async(req,res,next)=>{
         })
     }
     return res.status(200).json({blog})
+}
+
+export const getById = async(req,res,next)=>{
+  const Id = req.params.id;
+  let blog;
+  try{
+   blog = await Blog.findById(Id);
+  } catch(err){
+    return console.log(err)
+  }
+  if(!blog){
+    return res.status(404).json({
+        message:"No blog found"
+    })
+  }
+  return res.status(200).json({blog})
 }
